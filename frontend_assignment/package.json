@@ -9,7 +9,7 @@
         "next:dev": "next dev",
         "hardhat:node": "hardhat node",
         "compile": "hardhat compile",
-        "deploy": "hardhat deploy",
+        "deploy": "hardhat deploy --network localhost",
         "test": "hardhat test",
         "report-gas": "REPORT_GAS=true hardhat test",
         "start": "next start",
@@ -18,12 +18,15 @@
     },
     "dependencies": {
         "@metamask/detect-provider": "^1.2.0",
+        "@nextui-org/react": "^1.0.0-beta.7",
         "@zk-kit/identity": "^1.4.1",
         "@zk-kit/protocols": "^1.11.0",
         "assert": "^2.0.0",
         "next": "12.0.10",
         "react": "17.0.2",
-        "react-dom": "17.0.2"
+        "react-dom": "17.0.2",
+        "wagmi": "^0.4.4",
+        "yup": "^0.32.11"
     },
     "devDependencies": {
         "@appliedzkp/semaphore-contracts": "^0.8.0",
@@ -41,7 +44,7 @@
         "eslint": "8.8.0",
         "eslint-config-next": "12.0.10",
         "ethereum-waffle": "^3.4.0",
-        "ethers": "^5.5.3",
+        "ethers": "^5.6.8",
         "hardhat": "^2.8.3",
         "hardhat-dependency-compiler": "^1.1.2",
         "hardhat-gas-reporter": "^1.0.7",

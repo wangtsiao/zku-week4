@@ -5,6 +5,8 @@ import "@appliedzkp/semaphore-contracts/interfaces/IVerifier.sol";
 import "@appliedzkp/semaphore-contracts/base/SemaphoreCore.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
+import "hardhat/console.sol";
+
 /// @title Greeters contract.
 /// @dev The following code is just a example to show how Semaphore con be used.
 contract Greeters is SemaphoreCore, Ownable {
@@ -32,12 +34,15 @@ contract Greeters is SemaphoreCore, Ownable {
         uint256 _nullifierHash,
         uint256[8] calldata _proof
     ) external onlyOwner {
+        console.log("Received Greeting ...");
+
         _verifyProof(_greeting, greeters, _nullifierHash, greeters, _proof, verifier);
 
         // Prevent double-greeting (nullifierHash = hash(root + identityNullifier)).
         // Every user can greet once.
         _saveNullifierHash(_nullifierHash);
 
+        console.log("emit NewGreeting event ...");
         emit NewGreeting(_greeting);
     }
 }
